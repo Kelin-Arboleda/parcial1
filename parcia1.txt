@@ -1,0 +1,112 @@
+
+// Fabian Andres Cuartas - Kelin Arboleda Davila.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct productos{
+	int cantVendida, precioUnidad, importe;
+}producto[100], *pProductos = producto;
+
+struct proveedores{
+	char nombre[30], direccion[30];
+	int tel;
+	productos(pProducto);
+}proveedor[100], *pProveedor = proveedor;
+
+int main(){
+	int i, cProvee, cProduc, j; 
+	float suma = 0, barato, caro;
+	
+	printf("Ingrese La Cantidad de Proveedores A Ingresar: ");
+	scanf("%d", &cProvee);
+	
+	//Ingresando datos del proveedor
+	for(i = 0; i < cProvee; i++){
+		fflush(stdin);
+		printf("\n\tProveedor %d\n", i + 1);
+		printf("\nIngrese El Nombre Del Proveedor: ");
+		fgets((pProveedor + i) -> nombre, 30, stdin);
+		printf("\nIngrese Direccion Del Proveedor: ");
+		fgets((pProveedor + i) -> direccion, 30, stdin);
+		printf("\nIngrese Telefono Del Proveedor: ");
+		scanf("%d", &(pProveedor + i) -> tel);
+		printf("\nIngrese La Cantidad De Productos A Ingresar: ");
+		scanf("%d", &cProduc);
+		printf("\nIngrese La Cantidad De Productos Vendidos: ");
+		scanf("%d", &(pProductos + j) -> cantVendida);
+		printf("\nIngrese El Precio De Cada Unidad: ");
+		scanf("%.2f",  &(pProductos + i) -> precioUnidad);
+	}
+	
+	//Imprimiendo datos del proveedor
+	for(i = 0; i < cProvee; i++){
+		printf("\nNombre Del Proveedor: %s", (pProveedor + i) -> nombre);
+		printf("Direccion Del Proveedor: %s", (pProveedor + i) -> direccion);
+		printf("\nTelefono Del Proveedor: %d", (pProveedor + i) -> tel);
+		//printf("Precio Total: %.2f", (pProveedor + i) -> pProductos + i -> importe);
+	}
+	barato =  (pProductos + i) -> importe;
+	caro = (pProductos + i) -> importe;
+	
+	for(i = 0; i < cProvee; i++){
+		if((pProductos + i) -> importe > caro){
+			caro = (pProductos + i) -> importe;
+		}
+	}
+	
+	for(i = 0; i < cProvee; i++){
+		if((pProductos + i) -> importe < barato){
+			barato = (pProductos + i) -> importe;
+		}
+	}
+	printf("\nProveedor Mas Barato: %.2f", barato);
+	printf("\nProveedor Mas Caro: %.2f", caro);
+	
+	for(i = 0; i < cProvee; i++){
+		suma = suma + (pProductos + i) -> importe;
+	}
+	//
+	for(j = 0; j < cProduc; j++){
+		printf("\nCantidad De Productos Vendidos: %.2f", (pProductos + i) -> cantVendida);
+		printf("\nPrecio De Cada Unidad: %.2f", (pProductos + i) -> precioUnidad);
+	}
+	
+	printf("\nImporte Total: %.2f", suma);
+	
+	return 0;
+}
+
+_____________________________________________________________________________________
+
+
+#include <iostream>
+#include<stdio.h>
+
+using namespace std;
+
+int main()
+{ int f,c;
+    int matriz[100][100];
+    printf("ingrese filas  \n");
+    scanf("%d" ,&f);
+    printf(" columnas \n");
+    scanf("%d",&c);
+ matriz[f][c];
+
+    for(int i=0;i<f;i++){
+        for(int j=0;j<c;j++){
+            matriz=([j]=[j-1]+[j-2]);
+        }
+    }
+ for(int i=0;i<f;i++){
+        for(int j=0;j<c;j++){
+            prinf("%d ",matriz);
+        }
+        prinf("\n");
+    }
+
+
+
+    return 0;
+}
